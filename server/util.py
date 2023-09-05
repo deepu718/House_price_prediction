@@ -35,7 +35,7 @@ def load_saved_artifacts():
             __locations = __data_columns[4:]
     except:
         print(path)
-    with open(path + "/artifacts/bengaluru_house_prices_model.pickle",'rb') as f:
+    with open(path + "/server/artifacts/bengaluru_house_prices_model.pickle",'rb') as f:
         __model = pickle.load(f)
     print("loading saved artifacts..done")
 
