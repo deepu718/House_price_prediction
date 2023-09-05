@@ -29,7 +29,7 @@ def load_saved_artifacts():
     global __locations
     global __model
     path = os.path.dirname(__file__)
-    with open(path + "/artifacts/a","r") as f:
+    with open(path + "/artifacts/app.py","r") as f:
         __data_columns = json.load(f)["data_columns"]
         __locations = __data_columns[4:]
 
