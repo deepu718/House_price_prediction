@@ -2,6 +2,7 @@ import json
 import pickle
 import numpy as np
 from functools import lru_cache
+import os
 __locations = None
 __data_columns = None
 __model = None
@@ -27,13 +28,15 @@ def load_saved_artifacts():
     global __data_columns
     global __locations
     global __model
-    with open("House_price_prediction/server/artifacts/columns.json","r") as f:
+    path = os.path.dirname(__file__)
+    with open(path + "/artifacts/a","r") as f:
         __data_columns = json.load(f)["data_columns"]
         __locations = __data_columns[4:]
 
-    with open("House_price_prediction/server/artifacts/bengaluru_house_prices_model.pickle",'rb') as f:
+    with open(path + "/artifacts/bengaluru_house_prices_model.pickle",'rb') as f:
         __model = pickle.load(f)
     print("loading saved artifacts..done")
 
 if __name__ == "__main__":
-    print(get_estimated_price('1st phase jp nagar',1000,2,2,2))
+    load_saved_artifacts()
+    # print(get_estimated_price('1st phase jp nagar',1000,2,2,2))
