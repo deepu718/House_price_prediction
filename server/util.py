@@ -29,12 +29,9 @@ def load_saved_artifacts():
     global __locations
     global __model
     path = os.getcwd()
-    try:
-        with open(path + "/artifacts/columns.json","r") as f:
-            __data_columns = json.load(f)["data_columns"]
-            __locations = __data_columns[4:]
-    except:
-        print(path)
+    with open(path + "/server/artifacts/columns.json","r") as f:
+        __data_columns = json.load(f)["data_columns"]
+        __locations = __data_columns[4:]
     with open(path + "/server/artifacts/bengaluru_house_prices_model.pickle",'rb') as f:
         __model = pickle.load(f)
     print("loading saved artifacts..done")
